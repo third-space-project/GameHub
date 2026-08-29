@@ -1,0 +1,172 @@
+@font-face {
+          font-family: "Jersey 20";
+          font-style: normal;
+          font-weight: 400;
+          src: url("https://static.figma.com/font/Jersey20-Regular_2") format("woff2");
+        }
+@font-face {
+          font-family: "Jersey 15";
+          font-style: normal;
+          font-weight: 400;
+          src: url("https://static.figma.com/font/Jersey15-Regular_2") format("woff2");
+        }
+  
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+        body {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../background.jpg'); 
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+  
+        /* ── Header ── */
+        header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          padding: 40px 16px 24px;
+          width: 100%;
+        }
+  
+        h1 {
+          font-family: "Jersey 20", sans-serif;
+          font-size: clamp(56px, 9vw, 128px);
+          font-weight: 400;
+          color: #cf7e04;
+          line-height: 1;
+          letter-spacing: 0.02em;
+          text-align: center;
+          top: 5%;
+        }
+  
+        /* ── Search ── */
+        .search-wrap {
+          width: 100%;
+          max-width: 575px;
+          padding: 0 16px;
+        }
+  
+        .search-box {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          height: 64px;
+          padding: 0 16px;
+          background: rgba(131, 131, 131, 0.397);
+          border-radius: 20px;
+          box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+          position: absolute;
+          left: 25%; top: 22%;
+          width: 50%;
+          display: flex;
+          backdrop-filter: blur(10px);
+          background-color: #3334233b;
+    
+          justify-content: space-between;
+          border-radius: 20px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          height: 52px;
+          padding: 0 20px;
+          background: rgba(255, 255, 255, 0.05);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          user-select: none;
+        }
+  
+        .search-box svg { flex-shrink: 0; }
+  
+        .search-box input {
+          flex: 1;
+          border: none;
+          outline: none;
+          background: transparent;
+          font-family: "Jersey 15", sans-serif;
+          font-size: 24px;
+          font-weight: 400;
+          color: #e6e3e3;
+          line-height: 1;
+        }
+  r
+        .search-box input::placeholder { color: #1e1e1e; }
+  
+        .clear-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
+          color: #aaa;
+          line-height: 1;
+          padding: 0 4px;
+          display: none;
+        }
+        .clear-btn:hover { color: #555; }
+  
+        /* ── Grid ── */
+        main {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 24px 40px 48px;
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(5, 193px);
+          gap: 50px 74px;
+        }
+  
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+        }
+  
+        .card-img {
+          width: 193px;
+          height: 153px;
+          border-radius: 14px;
+          overflow: hidden;
+          background: #d9d9d9;
+        }
+  
+        .card-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+  
+        .card-label {
+          width: 193px;
+          height: 47px;
+          border-radius: 12px;
+          background: rgba(243, 107, 17, 0.729);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Jersey 15", sans-serif;
+          font-size: 22px;
+          font-weight: 400;
+          color: #e3dede;
+          text-align: center;
+          border: #efe9e9;
+          border-width: 100px;
+        }
+  
+        a.card:hover .card-img { opacity: 0.85; }
+        a.card:hover .card-label { background: #e18904; }
+        a.card .card-img, a.card .card-label { transition: opacity 0.15s, background 0.15s; }
+
+        /* ── Empty state ── */
+        .empty {
+          font-family: "Jersey 15", sans-serif;
+          font-size: 24px;
+          color: #aaa;
+          padding: 80px 0;
+          text-align: center;
+          display: none;
+        }

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d1srrplmhlrag"]
+
+[ext_resource type="Script" uid="uid://b2xuy8or6qdu1" path="res://src/playerPaddle/player_paddle.gd" id="1_vijyt"]
+[ext_resource type="Texture2D" uid="uid://4pr5iqrqgf51" path="res://assets/RedPaddleUp.png" id="2_ys5s7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ys5s7"]
+radius = 63.882126
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7oek"]
+radius = 65.14515
+
+[node name="PlayerPaddle" type="CharacterBody2D" unique_id=1135400471]
+motion_mode = 1
+script = ExtResource("1_vijyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985170370]
+position = Vector2(172, 117.99999)
+scale = Vector2(0.10738187, 0.13636546)
+texture = ExtResource("2_ys5s7")
+
+[node name="CollisionDown" type="CollisionShape2D" parent="." unique_id=2031569909]
+position = Vector2(158, 102.00001)
+scale = Vector2(0.7676681, 0.7726974)
+shape = SubResource("CircleShape2D_ys5s7")
+disabled = true
+
+[node name="CollisionUp" type="CollisionShape2D" parent="." unique_id=51336211]
+position = Vector2(182, 101)
+scale = Vector2(0.7676681, 0.7726974)
+shape = SubResource("CircleShape2D_e7oek")
+disabled = true
