@@ -1,0 +1,251 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>GAMEHUB</title>
+      <style>
+        @font-face {
+          font-family: "Jersey 20";
+          font-style: normal;
+          font-weight: 400;
+          src: url("https://static.figma.com/font/Jersey20-Regular_2") format("woff2");
+        }
+        @font-face {
+          font-family: "Jersey 15";
+          font-style: normal;
+          font-weight: 400;
+          src: url("https://static.figma.com/font/Jersey15-Regular_2") format("woff2");
+        }
+  
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+        body {
+          background: #fff;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-family: sans-serif;
+        }
+  
+        /* ── Header ── */
+        header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          padding: 40px 16px 24px;
+          width: 100%;
+        }
+  
+        h1 {
+          font-family: "Jersey 20", sans-serif;
+          font-size: clamp(56px, 9vw, 128px);
+          font-weight: 400;
+          color: #ceffea;
+          line-height: 1;
+          letter-spacing: 0.02em;
+          text-align: center;
+        }
+  
+        /* ── Search ── */
+        .search-wrap {
+          width: 100%;
+          max-width: 575px;
+          padding: 0 16px;
+        }
+  
+        .search-box {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          height: 64px;
+          padding: 0 16px;
+          background: #fff;
+          border-radius: 20px;
+          box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+        }
+  
+        .search-box svg { flex-shrink: 0; }
+  
+        .search-box input {
+          flex: 1;
+          border: none;
+          outline: none;
+          background: transparent;
+          font-family: "Jersey 15", sans-serif;
+          font-size: 24px;
+          font-weight: 400;
+          color: #1e1e1e;
+          line-height: 1;
+        }
+  
+        .search-box input::placeholder { color: #1e1e1e; }
+  
+        .clear-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 22px;
+          color: #aaa;
+          line-height: 1;
+          padding: 0 4px;
+          display: none;
+        }
+        .clear-btn:hover { color: #555; }
+  
+        /* ── Grid ── */
+        main {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 24px 40px 48px;
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(5, 193px);
+          gap: 50px 74px;
+        }
+  
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 13px;
+        }
+  
+        .card-img {
+          width: 193px;
+          height: 153px;
+          border-radius: 14px;
+          overflow: hidden;
+          background: #d9d9d9;
+        }
+  
+        .card-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+  
+        .card-label {
+          width: 193px;
+          height: 47px;
+          border-radius: 12px;
+          background: #d9d9d9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Jersey 15", sans-serif;
+          font-size: 18px;
+          font-weight: 400;
+          color: #1e1e1e;
+          text-align: center;
+        }
+  
+        a.card:hover .card-img { opacity: 0.85; }
+        a.card:hover .card-label { background: #c4c4c4; }
+        a.card .card-img, a.card .card-label { transition: opacity 0.15s, background 0.15s; }
+
+        /* ── Empty state ── */
+        .empty {
+          font-family: "Jersey 15", sans-serif;
+          font-size: 24px;
+          color: #aaa;
+          padding: 80px 0;
+          text-align: center;
+          display: none;
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <h1>GAMEHUB</h1>
+        <div class="search-wrap">
+          <div class="search-box">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
+              <path d="M17.5 31.25C25.0939 31.25 31.25 25.0939 31.25 17.5C31.25 9.90609 25.0939 3.75 17.5 3.75C9.90609 3.75 3.75 9.90609 3.75 17.5C3.75 25.0939 9.90609 31.25 17.5 31.25Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M36.25 36.25L27.5 27.5" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="search" type="text" placeholder="BROWSE THE LIBRARY" autocomplete="off" />
+            <button class="clear-btn" id="clear">×</button>
+          </div>
+        </div>
+      </header>
+  
+      <main>
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty">NO GAMES FOUND</p>
+      </main>
+  
+      <script>
+        const GAMES = [
+          { id: 1,  title: "TETRIS",  image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop", href: "games/tetris.html" },
+          { id: 2,  title: "Dragon Realm",   image: "https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=300&fit=crop" },
+          { id: 3,  title: "Space Raiders",  image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=300&fit=crop" },
+          { id: 4,  title: "Neon Strike",    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" },
+          { id: 5,  title: "Shadow Blade",   image: "https://images.unsplash.com/photo-1511882150382-421056c89033?w=400&h=300&fit=crop" },
+          { id: 6,  title: "PONG",            image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop", href: "games/pong.html" },
+          { id: 7,  title: "Storm Forge",    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop" },
+          { id: 8,  title: "Void Hunter",    image: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=400&h=300&fit=crop" },
+          { id: 9,  title: "Iron Citadel",   image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" },
+          { id: 10, title: "Mech Brawler",   image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop" },
+          { id: 11, title: "Ghost Recon",    image: "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=300&fit=crop" },
+          { id: 12, title: "Fire Emblem",    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop" },
+          { id: 13, title: "Arctic Zone",    image: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=400&h=300&fit=crop" },
+          { id: 14, title: "Deep Abyss",     image: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=300&fit=crop" },
+          { id: 15, title: "Thunder Run",    image: "https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=400&h=300&fit=crop" },
+        ];
+  
+        const grid  = document.getElementById("grid");
+        const empty = document.getElementById("empty");
+        const input = document.getElementById("search");
+        const clear = document.getElementById("clear");
+  
+        function render(q) {
+          const filtered = GAMES.filter(g => g.title.toLowerCase().includes(q.toLowerCase()));
+          grid.innerHTML = "";
+          if (filtered.length === 0) {
+            empty.style.display = "block";
+            grid.style.display  = "none";
+          } else {
+            empty.style.display = "none";
+            grid.style.display  = "grid";
+            filtered.forEach(g => {
+              const card = g.href
+                ? document.createElement("a")
+                : document.createElement("div");
+              card.className = "card";
+              if (g.href) {
+                card.href = g.href;
+                card.style.textDecoration = "none";
+              }
+              card.innerHTML = `
+                <div class="card-img">
+                  <img src="${g.image}" alt="${g.title}" onerror="this.style.display='none'" />
+                </div>
+                <div class="card-label">${g.title}</div>
+              `;
+              grid.appendChild(card);
+            });
+          }
+        }
+  
+        input.addEventListener("input", () => {
+          const q = input.value;
+          clear.style.display = q ? "block" : "none";
+          render(q);
+        });
+  
+        clear.addEventListener("click", () => {
+          input.value = "";
+          clear.style.display = "none";
+          render("");
+        });
+  
+        render("");
+      </script>
+    </body>
+  </html>
