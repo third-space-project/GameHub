@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong – GAMEHUB</title>
+    <style>
+      @font-face {
+        font-family: "Jersey 20";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://static.figma.com/font/Jersey20-Regular_2") format("woff2");
+      }
+      @font-face {
+        font-family: "Jersey 15";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://static.figma.com/font/Jersey15-Regular_2") format("woff2");
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: sans-serif;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 40px 16px 28px;
+        width: 100%;
+      }
+
+      .back-btn {
+        align-self: flex-start;
+        margin-left: 40px;
+        font-family: "Jersey 15", sans-serif;
+        font-size: 20px;
+        color: #888;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.15s;
+      }
+      .back-btn:hover { color: #1e1e1e; }
+
+      h1 {
+        font-family: "Jersey 20", sans-serif;
+        font-size: clamp(48px, 8vw, 96px);
+        font-weight: 400;
+        color: #ceffea;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      main {
+        width: 100%;
+        max-width: 960px;
+        padding: 0 24px 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        flex: 1;
+      }
+
+      .iframe-wrap {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #d9d9d9;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+      }
+
+      .iframe-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      .hint {
+        font-family: "Jersey 15", sans-serif;
+        font-size: 16px;
+        color: #bbb;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="back-btn" href="/web/index.html">← BACK TO LIBRARY</a>
+      <h1>PONG</h1>
+    </header>
+
+    <main>
+      <div class="iframe-wrap">
+        <iframe
+          id="game-frame"
+          src="http://localhost:5000"
+          title="Pong – Flask App"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="hint">Game served by Flask on localhost:5000 — start your Flask app to play.</p>
+    </main>
+  </body>
+</html>
