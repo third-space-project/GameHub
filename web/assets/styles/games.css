@@ -43,13 +43,13 @@
         gap: 6px;
         transition: color 0.15s;
       }
-      .back-btn:hover { color: #1e1e1e; }
+      .back-btn:hover { color: #d69301; }
 
       h1 {
         font-family: "Jersey 20", sans-serif;
         font-size: clamp(48px, 8vw, 96px);
         font-weight: 400;
-        color: #ceffea;
+        color: #d69301;
         line-height: 1;
         letter-spacing: 0.02em;
         text-align: center;

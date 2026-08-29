@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Corrected http-equiv attribute and folder path -->
-    <meta http-equiv="refresh" content="0; url=./web/home.html" />
-  </head>
-  <body>
-    <p>Redirecting...</p>
-  </body>
-</html>
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>GAMEHUB</title>
+      <link rel="stylesheet" href="web/assets/styles/home.css">
+      <script src="web/script.js" defer></script>
+    </head>
+
+    <body>
+      <header>
+        <h1>GAMEHUB</h1>
+        <div class="search-wrap">
+          <div class="search-box">
+            <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
+              <path d="M17.5 31.25C25.0939 31.25 31.25 25.0939 31.25 17.5C31.25 9.90609 25.0939 3.75 17.5 3.75C9.90609 3.75 3.75 9.90609 3.75 17.5C3.75 25.0939 9.90609 31.25 17.5 31.25Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M36.25 36.25L27.5 27.5" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="search" type="text" placeholder="BROWSE THE LIBRARY" autocomplete="off" />
+            <button class="clear-btn" id="clear">×</button>
+          </div>
+        </div>
+      </header>
+  
+      <main>
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty">NO GAMES FOUND</p>
+      </main>
+  
+    </body>
+  </html>

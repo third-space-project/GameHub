@@ -2,8 +2,8 @@ const GAMES = [
   {
     id: 1,
     title: "TETRIS",
-    image: "assets/icons/tetris.jpeg",
-    href: "games/tetris.html",
+    image: "web/assets/icons/tetris.jpeg",
+    href: "web/games/tetris.html",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const GAMES = [
     title: "PONG",
     image:
       "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop",
-    href: "games/pong.html",
+    href: "web/games/pong.html",
   },
   {
     id: 7,    
