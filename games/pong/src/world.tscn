@@ -3,47 +3,29 @@
 [ext_resource type="PackedScene" uid="uid://d1srrplmhlrag" path="res://src/playerPaddle/player_paddle.tscn" id="1_tp5op"]
 [ext_resource type="Texture2D" uid="uid://ck0opalsxvl3k" path="res://assets/background.png" id="1_xlegt"]
 [ext_resource type="PackedScene" uid="uid://dx4wjupfvart6" path="res://src/ball/ball.tscn" id="3_0qwtu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwc0f"]
-size = Vector2(8, 375)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qwtu"]
-size = Vector2(8, 373.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t101k"]
-size = Vector2(7.9999847, 730.5)
+[ext_resource type="PackedScene" uid="uid://ccoggey1t50i7" path="res://src/env/border.tscn" id="4_t101k"]
+[ext_resource type="PackedScene" uid="uid://6wme5wynipk5" path="res://src/enemyPaddle/enemy_paddle.tscn" id="5_36ipd"]
 
 [node name="World" type="Node2D" unique_id=986400926]
+position = Vector2(0, -1)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=245192522]
 position = Vector2(584, 327)
 scale = Vector2(0.61011904, 0.6233332)
 texture = ExtResource("1_xlegt")
 
-[node name="PlayerPaddle" parent="." unique_id=1135400471 instance=ExtResource("1_tp5op")]
+[node name="PlayerPaddle" parent="." unique_id=1600285514 instance=ExtResource("1_tp5op")]
 position = Vector2(76, 102)
-motion_mode = 0
 wall_min_slide_angle = 0.13788101
 
 [node name="ball" parent="." unique_id=1255178308 instance=ExtResource("3_0qwtu")]
 position = Vector2(582, 319)
 
-[node name="border" type="StaticBody2D" parent="." unique_id=773358320]
+[node name="border" parent="." unique_id=1651226765 instance=ExtResource("4_t101k")]
+collision_mask = 28
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="border" unique_id=88432774]
-position = Vector2(219, 324.5)
-shape = SubResource("RectangleShape2D_qwc0f")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="border" unique_id=1613421461]
-position = Vector2(949, 326.375)
-shape = SubResource("RectangleShape2D_0qwtu")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="border" unique_id=941148976]
-position = Vector2(580.25, 509)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_t101k")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="border" unique_id=1781309641]
-position = Vector2(582.5, 141)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_t101k")
+[node name="EnemyPaddle" parent="." unique_id=1135400471 instance=ExtResource("5_36ipd")]
+position = Vector2(734, 319.00003)
+rotation = 0.2617994
+collision_layer = 16
+collision_mask = 7

@@ -5,30 +5,7 @@ const GAMES = [
     image: "web/assets/icons/tetris.jpeg",
     href: "web/games/tetris.html",
   },
-  {
-    id: 2,
-    title: "Dragon Realm",
-    image:
-      "https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=300&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Space Raiders",
-    image:
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=300&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Neon Strike",
-    image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Shadow Blade",
-    image:
-      "https://images.unsplash.com/photo-1511882150382-421056c89033?w=400&h=300&fit=crop",
-  },
+
   {
     id: 6,
     title: "PONG",
@@ -37,7 +14,7 @@ const GAMES = [
     href: "web/games/pong.html",
   },
   {
-    id: 7,    
+    id: 7,
     title: "Storm Forge",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
@@ -96,6 +73,26 @@ const grid = document.getElementById("grid");
 const empty = document.getElementById("empty");
 const input = document.getElementById("search");
 const clear = document.getElementById("clear");
+const startButton = document.getElementById("start-btn");
+const loadingScreen = document.getElementById("loading-screen");
+const loadingCoin = document.querySelector(".gold-coin");
+let selectedGameId = null;
+
+function updateStartButtonState() {
+  const hasSelection = GAMES.some((game) => game.id === selectedGameId && game.href);
+  startButton.disabled = !hasSelection;
+}
+
+function selectGame(gameId) {
+  selectedGameId = gameId;
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    const isSelected = Number(card.dataset.gameId) === selectedGameId;
+    card.classList.toggle("is-selected", isSelected);
+    card.setAttribute("aria-pressed", String(isSelected));
+  });
+  updateStartButtonState();
+}
 
 function render(q) {
   const filtered = GAMES.filter((g) =>
@@ -105,27 +102,38 @@ function render(q) {
   if (filtered.length === 0) {
     empty.style.display = "block";
     grid.style.display = "none";
-  } else {
-    empty.style.display = "none";
-    grid.style.display = "grid";
-    filtered.forEach((g) => {
-      const card = g.href
-        ? document.createElement("a")
-        : document.createElement("div");
-      card.className = "card";
-      if (g.href) {
-        card.href = g.href;
-        card.style.textDecoration = "none";
-      }
-      card.innerHTML = `
-                <div class="card-img">
-                  <img src="${g.image}" alt="${g.title}" onerror="this.style.display='none'" />
-                </div>
-                <div class="card-label">${g.title}</div>
-              `;
-      grid.appendChild(card);
-    });
+    updateStartButtonState();
+    return;
   }
+
+  empty.style.display = "none";
+  grid.style.display = "grid";
+  filtered.forEach((g) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "card";
+    card.dataset.gameId = String(g.id);
+    card.setAttribute("aria-pressed", "false");
+    card.innerHTML = `
+      <div class="card-img">
+        <img src="${g.image}" alt="${g.title}" onerror="this.style.display='none'" />
+      </div>
+      <div class="card-label">${g.title}</div>
+    `;
+
+    if (g.id === selectedGameId) {
+      card.classList.add("is-selected");
+      card.setAttribute("aria-pressed", "true");
+    }
+
+    card.addEventListener("click", () => {
+      selectGame(g.id);
+    });
+
+    grid.appendChild(card);
+  });
+
+  updateStartButtonState();
 }
 
 input.addEventListener("input", () => {
@@ -138,6 +146,26 @@ clear.addEventListener("click", () => {
   input.value = "";
   clear.style.display = "none";
   render("");
+});
+
+startButton.addEventListener("click", () => {
+  const selectedGame = GAMES.find((game) => game.id === selectedGameId && game.href);
+  if (!selectedGame) {
+    return;
+  }
+
+  loadingScreen.classList.remove("is-visible");
+  void loadingScreen.offsetWidth;
+  loadingScreen.classList.add("is-visible");
+  loadingScreen.setAttribute("aria-hidden", "false");
+
+  loadingCoin.classList.remove("coin-pop");
+  void loadingCoin.offsetWidth;
+  loadingCoin.classList.add("coin-pop");
+
+  window.setTimeout(() => {
+    window.location.href = selectedGame.href;
+  }, 1100);
 });
 
 render("");

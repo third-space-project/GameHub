@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ccoggey1t50i7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwc0f"]
+size = Vector2(8, 375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qwtu"]
+size = Vector2(8, 373.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t101k"]
+size = Vector2(7.9999847, 730.5)
+
+[node name="border" type="CharacterBody2D" unique_id=1651226765]
+position = Vector2(0, -1)
+
+[node name="RedBorder" type="CollisionShape2D" parent="." unique_id=2071786929]
+position = Vector2(219, 324.5)
+shape = SubResource("RectangleShape2D_qwc0f")
+debug_color = Color(0.84711885, 0, 0.21374097, 0.41960785)
+
+[node name="BlueBorder" type="CollisionShape2D" parent="." unique_id=1548076166]
+position = Vector2(949, 326.375)
+shape = SubResource("RectangleShape2D_0qwtu")
+debug_color = Color(0.08032485, 0.46722716, 0.85345566, 0.41960785)
+
+[node name="BottomBorder" type="CollisionShape2D" parent="." unique_id=2105409799]
+position = Vector2(580.25, 509)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_t101k")
+
+[node name="TopBorder" type="CollisionShape2D" parent="." unique_id=173614172]
+position = Vector2(582.5, 141)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_t101k")

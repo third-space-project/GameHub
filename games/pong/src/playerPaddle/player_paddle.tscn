@@ -11,6 +11,7 @@ radius = 65.14515
 
 [node name="PlayerPaddle" type="CharacterBody2D" unique_id=1135400471]
 motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_vijyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=985170370]

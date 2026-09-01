@@ -14,7 +14,7 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
-        background: #1b1b1b;
+        background: #72706F;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -43,16 +43,17 @@
         gap: 6px;
         transition: color 0.15s;
       }
-      .back-btn:hover { color: #d69301; }
+      .back-btn:hover { color: #de4425; }
 
       h1 {
         font-family: "Jersey 20", sans-serif;
         font-size: clamp(48px, 8vw, 96px);
         font-weight: 400;
-        color: #d69301;
+        color: #de4425;
         line-height: 1;
         letter-spacing: 0.02em;
         text-align: center;
+        top: 10%;
       }
 
       main {
