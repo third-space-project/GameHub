@@ -2,21 +2,27 @@
         /* ── Grid ── */
         main {
           width: 100%;
+          min-height: calc(100vh - 150px);
           display: flex;
+          align-items: center;
           justify-content: center;
-          padding: 24px 40px 48px;
+          padding: 22px 8px 52px;
+          box-sizing: border-box;
         }
   
         .grid {
           display: grid;
-          grid-auto-flow: column;        /* fill left-to-right */
-            grid-template-rows: repeat(2, auto); /* two rows */
-            grid-auto-columns: 193px;      /* width of each card column */
-            gap: 24px 30px;
-            overflow-x: visible;              /* enable horizontal scrolling */
-            overflow-y: hidden;
-            padding-bottom: 12px;
-            width: max-content; 
+          grid-auto-flow: column;
+          grid-template-rows: repeat(2, auto);
+          grid-auto-columns: minmax(220px, 240px);
+          gap: 28px 34px;
+          overflow: auto;
+          padding-bottom: 12px;
+          width: calc(100% - 16px);
+          max-width: none;
+          justify-content: center;
+          align-content: center;
+          margin: 0 auto;
         }
         .grid::-webkit-scrollbar {
             display: none;
@@ -46,8 +52,8 @@
         }
   
         .card-img {
-          width: 193px;
-          height: 133px;
+          width: min(100%, 240px);
+          height: 160px;
           border-radius: 14px;
           overflow: hidden;
           background: #d9d9d9;
@@ -67,8 +73,8 @@
         }
   
         .card-label {
-          width: 160px;
-          height: 47px;
+          width: min(100%, 180px);
+          height: 52px;
           background: #a29e9b;
           display: flex;
           align-items: center;
@@ -607,7 +613,7 @@ body {
   background-color:#C9C7C3;
   -webkit-font-smoothing: antialiased;
   cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=), auto;
-
+  
 }
 
 label {
