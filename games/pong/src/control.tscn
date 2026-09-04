@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://5qytuk8uvyt7"]
+
+[ext_resource type="Script" uid="uid://bcife22i5ml12" path="res://src/control.gd" id="1_3t612"]
+[ext_resource type="Texture2D" uid="uid://ck0opalsxvl3k" path="res://assets/background.png" id="1_o5esy"]
+[ext_resource type="FontFile" uid="uid://baxha26y2ob3g" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_3t612"]
+
+[node name="Control" type="Control" unique_id=416955819]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3t612")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=727122000]
+self_modulate = Color(0.67754686, 0.67754686, 0.67754686, 1)
+position = Vector2(577.00006, 317.00003)
+scale = Vector2(0.61011904, 0.6233332)
+texture = ExtResource("1_o5esy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=39297006]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 154.0
+offset_right = 980.0
+offset_bottom = 345.0
+theme_override_fonts/normal_font = ExtResource("2_3t612")
+theme_override_font_sizes/normal_font_size = 177
+text = "PONG"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=546596775]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 435.0
+offset_right = 498.0
+offset_bottom = 486.0
+theme_override_fonts/normal_font = ExtResource("2_3t612")
+theme_override_font_sizes/normal_font_size = 16
+text = "Use \"↑\" and \"↓\" buttons to move your paddle"
+
+[node name="Button" type="Button" parent="." unique_id=955210483]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 536.0
+offset_right = 718.0
+offset_bottom = 598.0
+theme_override_colors/font_color = Color(0.80492854, 0.4400783, 0.10981735, 1)
+theme_override_fonts/font = ExtResource("2_3t612")
+theme_override_font_sizes/font_size = 25
+text = "START"
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=663208117]
+layout_mode = 0
+offset_left = 630.0
+offset_top = 427.0
+offset_right = 899.0
+offset_bottom = 470.0
+theme_override_fonts/font = ExtResource("2_3t612")
+theme_override_font_sizes/font_size = 22
+text = "Difficulty"
+expand_icon = true
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/checkable = 2
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/checkable = 2
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/checkable = 2
+popup/item_2/id = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

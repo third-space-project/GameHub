@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 450.0
 @onready var start_position: Vector2 = global_position
+# Make sure your AudioStreamPlayer child node is named exactly "AudioStreamPlayer"
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	reset_ball(true)
@@ -9,6 +11,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var col : KinematicCollision2D = move_and_collide(velocity * delta)
 	if col:
+		# --- PLAY SOUND WITH PITCH MODULATION ---
+		# Randomizes pitch between 0.9 (lower/thicker) and 1.1 (higher/crisper)
+		audio_player.pitch_scale = randf_range(0.9, 1.1)
+		audio_player.play()
+		# ----------------------------------------
+		
 		var collider = col.get_collider()
 		var normal := col.get_normal()
 		

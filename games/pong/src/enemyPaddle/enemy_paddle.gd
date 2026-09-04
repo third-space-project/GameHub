@@ -2,16 +2,15 @@ extends CharacterBody2D
 
 const POS = Vector2(893, 451)
 
-@export var difficulty: int = 3 # 1: Easy, 2: Medium, 3: Hard
 @export var ball_path: NodePath
-
+@export var difficulty: int = 1 
 @onready var ball: Node2D = get_node_or_null(ball_path)
 @onready var sprite: Sprite2D = $Sprite2D
 
 const TEXTURE_UP = preload("res://assets/BluePaddleUp.png")
 const TEXTURE_DOWN = preload("res://assets/BluePaddleDown.png")
 
-var speed: float = 300.0
+var speed: float = 0.0
 var error_margin: float = 0.0
 var reaction_cooldown: float = 0.0
 var reaction_timer: float = 0.0
@@ -24,23 +23,28 @@ var has_moved_this_turn: bool = false
 
 func _ready() -> void:
 	global_position = POS 
+	difficulty = GameManager.difficulty
+	print("Enemy spawned with difficulty level: ", difficulty) 
 	setup_difficulty()
 	target_y = global_position.y
-
+	
+	
 func setup_difficulty() -> void:
 	match difficulty:
 		1:
-			speed = 270.0
+			speed = 280.0
 			error_margin = 60.0
 			reaction_cooldown = 0.25
 		2:
-			speed = 320.0
-			error_margin = 30.0
-			reaction_cooldown = 0.1
-		3:
-			speed = 400.0
-			error_margin = 20.0
+			speed = 430.0
+			error_margin = 15.0
 			reaction_cooldown = 0.2
+			
+		3:
+			speed = 320.0
+			error_margin = 8.0
+			reaction_cooldown = 0.1
+			
 
 func getYDir(delta: float) -> float:
 	if not ball:

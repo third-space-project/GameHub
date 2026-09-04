@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bdjvaikbni1a7"]
+
+[ext_resource type="Texture2D" uid="uid://7pos2cx6d5nk" path="res://assets/ScoreBoard.png" id="1_vug2y"]
+[ext_resource type="FontFile" uid="uid://baxha26y2ob3g" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_pv1yx"]
+
+[node name="Scoreboard" type="CanvasLayer" unique_id=1374375741]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441381639]
+position = Vector2(582.75006, 55.37503)
+scale = Vector2(0.19250289, 0.19250289)
+texture = ExtResource("1_vug2y")
+
+[node name="ScoreRed" type="Label" parent="." unique_id=293704766]
+offset_left = 511.75006
+offset_top = 14.3750305
+offset_right = 564.75006
+offset_bottom = 76.37503
+theme_override_fonts/font = ExtResource("2_pv1yx")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreBlue" type="Label" parent="." unique_id=1337188498]
+offset_left = 598.75
+offset_top = 14.3750305
+offset_right = 651.75
+offset_bottom = 76.37503
+theme_override_fonts/font = ExtResource("2_pv1yx")
+theme_override_font_sizes/font_size = 33
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndGameLabel" type="Label" parent="." unique_id=1918920684]
+offset_left = 205.0
+offset_top = 252.0
+offset_right = 1005.0
+offset_bottom = 352.0
+offset_transform_position = Vector2(-75, 0)
+theme_override_constants/line_spacing = 7
+theme_override_fonts/font = ExtResource("2_pv1yx")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER\\nPress 'R' to Restart"
+
+[node name="DeuceLabel" type="Label" parent="." unique_id=1403371391]
+visible = false
+offset_left = 53.0
+offset_top = 252.0
+offset_right = 1103.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("2_pv1yx")
+theme_override_font_sizes/font_size = 70
+text = "DEUCE! WIN BY 2"

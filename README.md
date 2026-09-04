@@ -15,13 +15,13 @@
 
 ## **The Tech Stack**
 
-![Python](https://shields.io/badge/Python-yellow) 
+![HTML](https://shields.io/badge/HTML-orange) 
 
-![CPP](https://shields.io/badge/CPP-green)
+![CSS](https://shields.io/badge/CSS-green)
 
-![Fusion360](https://shields.io/badge/Fusion360-orange)
+![JavaScript](https://shields.io/badge/Javascript-yellow)
 
-![KiCAD](https://shields.io/badge/KiCAD-blue)
+![Godot](https://shields.io/badge/Godot-blue)
 
 
 ## Screenshots

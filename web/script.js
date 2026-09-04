@@ -2,22 +2,22 @@ const GAMES = [
   {
     id: 1,
     title: "TETRIS",
-    image: "web/assets/icons/tetris.jpeg",
+    image: "web/asset/thumbnails/tetris.jpeg",
     href: "web/games/tetris.html",
   },
 
   {
     id: 6,
     title: "PONG",
-    image:
-      "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop",
+    image:"web/assets/thumbnails/pong.png",
     href: "web/games/pong.html",
   },
   {
     id: 7,
-    title: "Storm Forge",
+    title: "Gario",
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+      "web/assets/thumbnails/gario.png",
+    href: "web/games/gario.html"
   },
   {
     id: 8,

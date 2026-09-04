@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED := 400.0
+const SPEED := 430.0
 const TEXTURE_UP = preload("res://assets/RedPaddleUp.png")
 const TEXTURE_DOWN = preload("res://assets/RedPaddleDown.png")
 
@@ -14,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 	var y_dir := getYDir()
 	velocity = Vector2(0, y_dir * SPEED)
 	move_and_slide()
+	velocity.x = 0
 	
 	# Change the texture of the single sprite based on direction
 	if y_dir < 0:
