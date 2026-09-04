@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cweo2gmn302n2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdwex"]
+size = Vector2(8, 375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8agwt"]
+size = Vector2(8, 373.25)
+
+[node name="EndBorders" type="Node2D" unique_id=1632470817]
+
+[node name="LeftGoal" type="Area2D" parent="." unique_id=889054684]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal" unique_id=498077843]
+position = Vector2(142, 324.5)
+shape = SubResource("RectangleShape2D_sdwex")
+debug_color = Color(0.84711885, 0, 0.21374097, 0.41960785)
+
+[node name="RightGoal" type="Area2D" parent="." unique_id=821761738]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=462526801]
+position = Vector2(996, 326.375)
+shape = SubResource("RectangleShape2D_8agwt")
+debug_color = Color(0.08032485, 0.46722716, 0.85345566, 0.41960785)

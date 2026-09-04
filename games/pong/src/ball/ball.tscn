@@ -6,8 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwc0f"]
 radius = 19.235384
 
-[node name="ball" type="CharacterBody2D" unique_id=1255178308]
-motion_mode = 1
+[node name="ball" type="CharacterBody2D" unique_id=1723117464]
 script = ExtResource("1_ksv3e")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1715522284]

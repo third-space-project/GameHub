@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cwbohdo2wethq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwc0f"]
+size = Vector2(8, 375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s2dv"]
+size = Vector2(8, 375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8upr"]
+size = Vector2(8, 373.25)
+
+[node name="PaddleBorder" type="CharacterBody2D" unique_id=133143410]
+
+[node name="RedBorder2" type="CollisionShape2D" parent="." unique_id=334364399]
+position = Vector2(320, 324)
+shape = SubResource("RectangleShape2D_qwc0f")
+debug_color = Color(0.84711885, 0, 0.21374097, 0.41960785)
+
+[node name="RedBorder3" type="CollisionShape2D" parent="." unique_id=797102712]
+position = Vector2(845, 324)
+shape = SubResource("RectangleShape2D_qwc0f")
+debug_color = Color(0.84711885, 0, 0.21374097, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1297599328]
+position = Vector2(219, 324.5)
+scale = Vector2(1, 1.64)
+shape = SubResource("RectangleShape2D_4s2dv")
+debug_color = Color(0.84711885, 0, 0.21374097, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1410461643]
+position = Vector2(949, 326.375)
+shape = SubResource("RectangleShape2D_s8upr")
+debug_color = Color(0.08032485, 0.46722716, 0.85345566, 0.41960785)
